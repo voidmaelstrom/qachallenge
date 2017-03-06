@@ -1,0 +1,74 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;\csgray\c100000;}
+\margl1440\margr1440\vieww25400\viewh13640\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Brad Stouffer 'QA Practical' Test Plan\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 TODO APP TEST PLAN\
+\
+1.) Default state of page, {\field{\*\fldinst{HYPERLINK "http://todomvc.com/examples/angular2/"}}{\fldrslt http://todomvc.com/examples/angular2/}}\
+     A.) Visit the todo app using the link above and ensure the following items appear as expected:\
+           -A \'91todos\'92 title is displayed\
+           -An input field is displayed and accessible by clicking and typing characters\
+             *The field should contain subdued text which reads, \'91What needs to be done?\'92\
+           -Text should be displayed, \'91Double-click to edit a todo\'92\
+           -4 links should be accessible\
+             *2 of them lead to specific authors\'92 GitHub spaces\
+             *One should lead to the \'91angular.io\'92 website\
+             *The final link should lead to the \'91todomvc.com\'92 website\
+\
+2.) Able to add todo items\
+     A.) Type in specific text into the input field provided and press \'91enter/return\'92\
+           -\ul Expected\ulnone : The typed entry is added on the page and new items appear beside the entry\
+            * A label appears at the bottom left displaying, \'91# items left\'92\
+            * A carat \'91^\'92 appears at the top left beside the input field for selecting all todos created\
+            * A clickable \'91circle\'92 appears to the left of the newly-created entry to mark the todo as\
+              completed\
+              -\ul Expected\ulnone : After clicking the circle, the todo is marked as completed; additionally, a \'91Clear completed\'92 link appears\
+               at the bottom right of the page to remove the entries from view that are completed\
+            * Hovering over to the right side of the item results in a visible \'91x\'92 button which is clicked to\
+               delete the todo from the list\
+\
+     B.) Add more items, delete, complete, clear completed\
+          -Add as many items on the page; ensure that the \'91# items left\'92 increases with each new todo added; the page should expand down\
+          -Delete items on the page; the \'91# items left\'92 should decrease by 1 each time, and the page should collapse up\
+          -Click on the \'91circle\'92 to the left of some todos\
+           -\ul Expected\ulnone : The todo entry beside the circle receives a strikethrough on its text and is marked as completed\
+            *The \'91# items left\'92 should decrease by 1\
+            *A checkmark appears in the circle upon click\
+          -Click on the carat \'91^\'92 on the top left of the page\
+            -\ul Expected\ulnone : All items in the list receive strikethrough and are marked as completed; the \'91# items left\'92  is set to \'910\'92 and the\
+             \'91Clear completed\'92 link is visible.\
+          -Click on the \'91Clear completed\'92 link\
+           -\ul Expected\ulnone : The items marked as completed will be removed from view and only the todos not marked as completed will remain\
+\
+3.) Edit todo items\
+     A.) Double-click on any todo text to edit the specific item\
+           -\ul Expected\ulnone : The text field should have a dark border applied and a cursor should allow the text to be modified within it\
+          -Type any different character combination and press enter/return to save the updated text to the entry\
+     B.) Clear text and try to save a pre-existing todo\
+           -\ul BUG\ulnone : Text can be cleared; however, the previous todo text is not preserved when enter/return is pressed; the item is automatically deleted from view\
+                       This same condition applies to items marked as completed which can also be edited\
+\
+4.) Test links on page\
+      -Access the 4 links on the page to ensure they route to the correct sites\
+\
+5.) Browser cache\
+     -Ensure that the todo list preserves the items added without clearing cache in the browser. Navigate away to another couple of sites and return\
+      to the page\
+       -\ul Expected\ulnone : The items should still be listed that were added and/or marked as completed\
+     -Clear the browser cache and reload the page\
+       -\ul Expected\ulnone : The page will load with none of the entries preserved in the last step performed\
+\
+6.) Input validation\
+     -Ensure that the input field for new todos can accept any characters (UTF-8)\
+     -Ensure that there is a set limit to how many characters can be entered into the input field\
+      \ul BUG\ulnone : The input field allows for next to infinite amount of characters to be entered; this should be limited due to constraints on readability in addition to performance\
+        \
+\
+\
+             }
